@@ -1,17 +1,19 @@
 import sqlite3
 
 # Conexão com o banco de dados
-conn = sqlite3.connect('escola.db')
+conn = sqlite3.connect('banco_dados/escola.db')
 cursor = conn.cursor()
 
 # Cria a tabela estudantes se ela não existir
-cursor.execute("""
+sql_query = ("""
 CREATE TABLE IF NOT EXISTS estudantes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     idade INTEGER NOT NULL
 )
 """)
+
+cursor.execute(sql_query)
 
 # Lista de estudantes para inserir
 estudantes = [
@@ -23,10 +25,15 @@ estudantes = [
  ]
 
 # Insere vários estudantes de uma vez
-cursor.executemany("INSERT INTO estudantes (nome, idade) VALUES (?, ?)", estudantes)
+insert_datas = ("INSERT INTO estudantes (nome, idade) VALUES (?, ?)")
+
+cursor.executemany(insert_datas, estudantes)
 
 # Seleciona todos os registros da tabela "estudantes"
-cursor.execute("SELECT * FROM estudantes")
+sql_query = ("SELECT * FROM estudantes")
+
+cursor.execute(sql_query)
+
 registros = cursor.fetchall()
 
 # Imprime os registros
@@ -34,14 +41,17 @@ for registro in registros:
     print(registro)
 
 # Atualiza a idade de Bob para 23
-cursor.execute("UPDATE estudantes SET idade = ? WHERE nome = ?", (26, 'Bob'))
+update_datas = ("UPDATE estudantes SET idade = ? WHERE nome = ?")
+cursor.execute(update_datas, (26, 'Bob'))
 
 # Remove o estudante Charlie
-cursor.execute("DELETE FROM estudantes WHERE nome = ?", ('Charlie',))
+delete_datas = ("DELETE FROM estudantes WHERE nome = ?")
+cursor.execute(delete_datas, ('Charlie',))
 
 # Seleciona os estudantes com idade maior que 21
-cursor.execute("SELECT * FROM estudantes WHERE idade > 21 ORDER BY idade")
-registros = cursor.fetchall()
+sql_query = ("SELECT * FROM estudantes WHERE idade > 21 ORDER BY idade")
+cursor.execute(sql_query)
+registros = cursor.fetchall() #significa buscar todos os registros que foi selecionada pelo select
 
 # Imprime os registros
 for registro in registros:
