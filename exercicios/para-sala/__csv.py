@@ -40,7 +40,7 @@ with open('arquivos_csv/clientes.csv', newline='', encoding='utf-8') as csvfile:
 sql_query = ("SELECT * FROM clientes")
 
 cursor.execute(sql_query)
-dados = cursor.fetchall()
+dados = cursor.fetchall() #significa buscar todos os registros que foi selecionada pelo select
 
 with open('arquivos_csv/exportados_clientes.csv', 'w', newline='', encoding='utf-8') as csvfile:
     escritor = csv.writer(csvfile)
