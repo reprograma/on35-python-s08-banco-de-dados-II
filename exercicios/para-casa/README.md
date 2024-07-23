@@ -2,7 +2,7 @@
 
 ## Gerenciando uma Videoteca com SQLite e CSV
 
-Neste exercício, você vai se transformar em um(a) gerente de videoteca e vai usar seus conhecimentos sobre SQLite e CSV para organizar um catálogo de filmes! 
+Neste exercício, você vai se transformar em uma gerente de videoteca e vai usar seus conhecimentos sobre SQLite e CSV para organizar um catálogo de filmes! 
 
 **Objetivo:**  Dominar a integração entre arquivos CSV e bancos de dados SQLite para gerenciar uma videoteca.
 
