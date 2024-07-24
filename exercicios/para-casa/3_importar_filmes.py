@@ -25,6 +25,8 @@ dados = cursor.fetchall() #significa buscar todos os registros que foi seleciona
 # Salva as alterações no banco de dados
 conn.commit()
 
+print('Filmes importados para o banco de dados!')
+
 # Fecha a conexão
 cursor.close()
 conn.close()

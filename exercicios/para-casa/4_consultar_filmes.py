@@ -2,13 +2,23 @@
 
 # Escreva um script Python (chamado `consultar_filmes.py`) que selecione e exiba todos os registros da tabela `filmes`.
 
+import sqlite3
 
-# sql_query = ("SELECT * FROM clientes")
+# Conectar ao banco de dados (ou criar um banco de dados)
+conn = sqlite3.connect('banco_dados/videoteca.db')
+cursor = conn.cursor()
 
-# cursor.execute(sql_query)
-# dados = cursor.fetchall() #significa buscar todos os registros que foi selecionada pelo select
+sql_query = ('''
+    SELECT titulo, diretor, ano, genero, preco
+    FROM filmes
+''')
 
-# with open('arquivos_csv/exportados_clientes.csv', 'w', newline='', encoding='utf-8') as csvfile:
-#     escritor = csv.writer(csvfile)
-#     escritor.writerow(['id', 'nome', 'email'])
-#     escritor.writerows(dados)
+cursor.execute(sql_query)
+resultado = cursor.fetchall() #significa buscar todos os registros que foi selecionada pelo select
+print("Filmes da videoteca: ")
+for linha in resultado:
+    print(linha)
+
+# Fecha a conexão
+cursor.close()
+conn.close()

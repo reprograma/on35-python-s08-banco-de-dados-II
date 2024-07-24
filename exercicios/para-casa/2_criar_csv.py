@@ -33,3 +33,4 @@ with open('arquivos_csv/filmes.csv', 'w', newline='', encoding='utf-8') as csvfi
     escritor.writerow(['titulo', 'diretor', 'ano','genero','preco'])  # Escreve o cabeçalho
     escritor.writerows(filmes)  # Escreve os dados
 
+print('Arquivo filmes.csv criado!')

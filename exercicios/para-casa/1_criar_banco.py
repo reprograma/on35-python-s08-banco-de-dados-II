@@ -36,6 +36,8 @@ cursor.execute(create_table_movies)
 # Salva as alterações no banco de dados
 conn.commit()
 
+print('Banco de dados da videoteca criado com sucesso!')
+
 # Fecha a conexão
 cursor.close()
 conn.close()
