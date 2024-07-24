@@ -35,7 +35,8 @@ with open('arquivos_csv/clientes.csv', newline='', encoding='utf-8') as csvfile:
     leitor = csv.reader(csvfile)
     next(leitor)  # Pula o cabeçalho
     for linha in leitor:
-        cursor.execute("INSERT INTO clientes (nome, email) VALUES (?, ?)", (linha[1], linha[2]))
+        insert_datas = "INSERT INTO clientes (nome, email) VALUES (?, ?)"
+        cursor.execute(insert_datas,(linha[1], linha[2]))
 
 sql_query = ("SELECT * FROM clientes")
 

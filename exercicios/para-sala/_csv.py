@@ -5,7 +5,7 @@ conexao = sqlite3.connect('banco_dados/exercicio_join.db')
 cursor = conexao.cursor()
 
 # Criar a tabela de clientes
-create_table = ('''
+create_table_clientes = ('''
     CREATE TABLE IF NOT EXISTS clientes (
         id INTEGER PRIMARY KEY,
         nome TEXT NOT NULL,
@@ -13,10 +13,10 @@ create_table = ('''
     )
 ''')
 
-cursor.execute(create_table)
+cursor.execute(create_table_clientes)
 
 # Criar a tabela de pedidos
-create_table = ('''
+create_table_pedidos = ('''
     CREATE TABLE IF NOT EXISTS pedidos (
         id INTEGER PRIMARY KEY,
         data TEXT NOT NULL,
@@ -26,27 +26,28 @@ create_table = ('''
     )
 ''')
 
-cursor.execute(create_table)
+cursor.execute(create_table_pedidos)
 
 # Inserir dados na tabela de clientes
-clientes = [
+customers = [
     (1, 'Ana', 'ana@example.com'),
     (2, 'Bruno', 'bruno@example.com'),
     (3, 'Carla', 'carla@example.com')
 ]
-insert_datas = ('INSERT INTO clientes VALUES (?, ?, ?)')
 
-cursor.executemany(insert_datas, clientes)
+insert_datas_customers = ('INSERT INTO clientes VALUES (?, ?, ?)')
+
+cursor.executemany(insert_datas_customers,customers)
 
 # Inserir dados na tabela de pedidos
-pedidos = [
+requests = [
     (1, '2023-07-01', 100.50, 1),
     (2, '2023-07-02', 200.75, 2),
     (3, '2023-07-03', 150.00, 1)
 ]
-insert_datas = ('INSERT INTO pedidos VALUES (?, ?, ?, ?)')
+insert_datas_requests = ('INSERT INTO pedidos VALUES (?, ?, ?, ?)')
 
-cursor.executemany(insert_datas, pedidos)
+cursor.executemany(insert_datas_requests, requests)
 
 # Salvar (commit) as mudanças
 conexao.commit()
@@ -59,7 +60,7 @@ sql_query = ('''
 ''')
 
 cursor.execute(sql_query)
-resultado = cursor.fetchall()
+resultado = cursor.fetchall() #significa buscar todos os registros que foi selecionada pelo select
 print("Pedidos com dados dos clientes:")
 for linha in resultado:
     print(linha)
