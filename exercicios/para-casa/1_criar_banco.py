@@ -11,7 +11,7 @@
 #     `diretor` (TEXT)
 #     `ano` (INTEGER)
 #     `genero` (TEXT)
-#     `preco` (REAL)  
+#     `preco` (REAL) 
 
 import sqlite3
 

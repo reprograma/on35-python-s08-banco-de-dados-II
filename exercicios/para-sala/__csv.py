@@ -1,22 +1,28 @@
 import csv
 import sqlite3
 
-#O newline evita que leia linha em brancos e o utf-8 é para linguagem brasileira com os caracteres e simbolos
-with open('arquivos_csv/produtos.csv', newline='', encoding='utf-8') as csvfile:
-    leitor = csv.reader(csvfile)
-    for linha in leitor:
-        print(linha)
+# #Abre o arquivo produtos e imprime na tela do terminal
 
-funcionarios = [
-    [1, 'Ana', 'Financeiro'],
-    [2, 'Carlos', 'TI'],
-    [3, 'Beatriz', 'RH']
-]
+# #O newline evita que leia linha em brancos e o utf-8 é para linguagem brasileira com os caracteres e simbolos
+# with open('arquivos_csv/produtos.csv', newline='', encoding='utf-8') as csvfile:
+#     leitor = csv.reader(csvfile)
+#     for linha in leitor:
+#         print(linha)
 
-with open('arquivos_csv/funcionarios.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    escritor = csv.writer(csvfile)
-    escritor.writerow(['id', 'nome', 'departamento'])  # Escreve o cabeçalho
-    escritor.writerows(funcionarios)  # Escreve os dados
+# #-----------------------------------------------------------
+
+# funcionarios = [
+#     [1, 'Ana', 'Financeiro'],
+#     [2, 'Carlos', 'TI'],
+#     [3, 'Beatriz', 'RH']
+# ]
+
+# #cria um arquivo funcionarios e escreve a lista de listas que foi definida na variavel funcionarios
+
+# with open('arquivos_csv/funcionarios.csv', 'w', newline='', encoding='utf-8') as csvfile:
+#     escritor = csv.writer(csvfile)
+#     escritor.writerow(['id', 'nome', 'departamento'])  # Escreve o cabeçalho
+#     escritor.writerows(funcionarios)  # Escreve os dados
 
 conn = sqlite3.connect('banco_dados/empresa.db')
 cursor = conn.cursor()
