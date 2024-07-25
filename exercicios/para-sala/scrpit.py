@@ -15,28 +15,28 @@ cursor.execute("""
                 )
                 """)
 
-#inserir dados
+# inserir dados
 # cursor.execute("""
 #                 INSERT INTO usuarios (nome, idade) VALUES ('Daiana',36),
 #                                                           ('Angelina',33)
 #                """)
 
-#inserir dados
+# inserir dados
 # cursor.execute("INSERT INTO usuarios (nome,idade) VALUES (?,?)",("Angelina",33))
 # cursor.execute("INSERT INTO usuarios (nome,idade) VALUES (?,?)",("Daiana",36))
 # cursor.execute("INSERT INTO usuarios (nome,idade) VALUES (?,?)",("Camila",36))
 
 
-#Atualizar um registro que ja existe
+# Atualizar um registro que ja existe
 # cursor.execute("UPDATE usuarios SET idade = ? WHERE nome = ?", (20,"Angelina"))
 
-#Remover um registro da tabela
-#cursor.execute("DELETE FROM usuarios WHERE nome = ?", ("Camila",)) #dessa forma, precisa colocar a virgula mesmo sem um outro parametro
+# Remover um registro da tabela
+# cursor.execute("DELETE FROM usuarios WHERE nome = ?", ("Camila",)) #dessa forma, precisa colocar a virgula mesmo sem um outro parametro
 
-#Remover um registro da tabela
-#cursor.execute("DELETE FROM usuarios WHERE nome = 'Camila'")
+# Remover um registro da tabela
+# cursor.execute("DELETE FROM usuarios WHERE nome = 'Camila'")
 
-#Remover mais de um registro da tabela
+# Remover mais de um registro da tabela
 # cursor.execute("DELETE FROM usuarios WHERE id IN (?,?)",(1,2))
 
 #Selecionando os dados
