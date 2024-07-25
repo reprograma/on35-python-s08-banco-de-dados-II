@@ -22,6 +22,8 @@ with open('arquivos_csv/exportados_filmes.csv', 'w', newline='', encoding='utf-8
 # Salva as alterações no banco de dados
 conn.commit()
 
+print('Filmes exportados para arquivo: exportados_filmes.csv')
+
 # Fecha a conexão
 cursor.close()
 conn.close()

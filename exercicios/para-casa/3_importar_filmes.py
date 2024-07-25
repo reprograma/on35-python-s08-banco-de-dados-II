@@ -9,7 +9,6 @@ import csv
 conn = sqlite3.connect('banco_dados/videoteca.db')
 cursor = conn.cursor()
 
-
 with open('arquivos_csv/filmes.csv', newline='', encoding='utf-8') as csvfile:
     leitor = csv.reader(csvfile)
     next(leitor)  # Pula o cabeçalho
