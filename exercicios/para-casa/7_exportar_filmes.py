@@ -16,7 +16,7 @@ datas = cursor.fetchall() #significa buscar todos os registros que foi seleciona
 
 with open('arquivos_csv/exportados_filmes.csv', 'w', newline='', encoding='utf-8') as csvfile:
     escritor = csv.writer(csvfile)
-    escritor.writerow(['titulo', 'diretor', 'ano', 'genero', 'preco'])
+    escritor.writerow(['id','titulo', 'diretor', 'ano', 'genero', 'preco'])
     escritor.writerows(datas)
 
 # Salva as alterações no banco de dados
