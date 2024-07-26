@@ -1,6 +1,5 @@
-id,nome,departamento
-1,Ana,Financeiro
-2,Carlos,TI
-3,Beatriz,RH
-4,Daniel,Marketing
-5,Elisa,Vendas
+id,nome,departamento,email
+1,Ana,Financeiro,ana@gmail.com
+2,Carlos,TI,carlos@gmail.com
+3,Thais,RH,thais@gmail.com
+3,Joao,RH,joao@gmail.com
