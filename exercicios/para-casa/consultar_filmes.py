@@ -15,5 +15,4 @@ for filme in filmes:
     print(f"Gênero: {filme[4]}")
     print(f"Preço: R${filme[5]:.2f}\n")
 
-# Fechando a conexão
 conn.close()
