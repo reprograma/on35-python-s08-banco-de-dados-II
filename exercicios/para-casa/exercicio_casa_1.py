@@ -46,7 +46,7 @@ with open('filmes.csv', newline='', encoding='utf-8') as csvfile:
     leitor = csv.reader(csvfile)
     next(leitor)  # Pula o cabeçalho
     for linha in leitor:
-        cursor.execute("INSERT INTO filmes (titulo, diretor, ano, genero, preco) VALUES (?, ?, ?, ?, ?)", (linha[1], linha[2], linha[3], linha[4], linha[5]))
+        cursor.execute("INSERT INTO filmes (titulo, diretor, ano, genero, preco) VALUES (?, ?, ?, ?, ?)", (linha[1], linha[2], linha[3], linha[4], linha[5]),)
         
 conn.commit()
 cursor.close()
