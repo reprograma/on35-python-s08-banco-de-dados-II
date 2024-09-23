@@ -106,7 +106,10 @@ Para falar com o SQLite, você precisa de uma linguagem especial chamada SQL (St
 
    ```python
    # Inserindo um novo registro na tabela
-   cursor.execute("INSERT INTO minha_tabela (coluna1, coluna2) VALUES (?, ?)", (valor1, valor2))
+   cursor.execute("""
+     INSERT INTO minha_tabela(coluna1, coluna2)
+     VALUES (?, ?)
+    """, (valor1, valor2))
 
    # Salvando (commit) as mudanças
    conn.commit()
@@ -115,8 +118,17 @@ Para falar com o SQLite, você precisa de uma linguagem especial chamada SQL (St
 3. **`UPDATE`:**  Atualizar informações, como se você estivesse corrigindo um erro em um documento.
 
    ```python
+
+    # Atualizando o preço do filme com id 2
+    novo_preco = 19.99  # Novo preço para o filme
+    id_filme = 2  # ID do filme que queremos atualizar
+   
    # Atualizando um registro existente
-   cursor.execute("UPDATE minha_tabela SET coluna1 = ? WHERE coluna2 = ?", (novo_valor1, valor2))
+   cursor.execute("""
+       UPDATE minha_tabela
+       SET coluna1 = ?
+       WHERE coluna2 = ?"
+   """, (novo_preco, id_filme))  
 
    # Salvando as mudanças
    conn.commit()
@@ -125,8 +137,15 @@ Para falar com o SQLite, você precisa de uma linguagem especial chamada SQL (St
 4. **`DELETE`:**  Remover informações, como se você estivesse apagando um rascunho de um texto.
 
    ```python
+
+    # ID do filme que queremos remover
+    id_filme = 3
+   
    # Removendo um registro da tabela
-   cursor.execute("DELETE FROM minha_tabela WHERE coluna1 = ?", (valor1,))
+   cursor.execute("""
+     DELETE FROM minha_tabela
+     WHERE coluna1 = ?"
+   """, (id_filme,))  
 
    # Salvando as mudanças
    conn.commit()
