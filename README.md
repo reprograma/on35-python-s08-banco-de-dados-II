@@ -93,13 +93,24 @@ Para falar com o SQLite, você precisa de uma linguagem especial chamada SQL (St
 1. **`SELECT`:**  Buscar informações no banco de dados, como se você estivesse procurando uma receita no seu livro de culinária.
 
    ```python
+   
    # Selecionando todos os registros de uma tabela
-   cursor.execute("SELECT * FROM minha_tabela")
-   resultados = cursor.fetchall()
+   cursor.execute("SELECT * FROM filmes")
+
+   # Recuperando todos os resultados da consulta
+   filmes = cursor.fetchall()
 
    # Exibindo os resultados
-   for linha in resultados:
-       print(linha)
+    print("Lista de Filmes na Videoteca:") 
+    print("-" * 50)  # separa cada item por pontinhado
+    for filme in filmes:
+        print(f"ID: {filme[0]}")
+        print(f"Título: {filme[1]}")
+        print(f"Diretor: {filme[2]}")
+        print(f"Ano: {filme[3]}")
+        print(f"Gênero: {filme[4]}")
+        print(f"Preço: R$ {filme[5]:.2f}")
+        print("-" * 50) # separa cada item por pontinhado
    ```
 
 2. **`INSERT`:** Adicionar novas informações ao banco de dados, como se você estivesse escrevendo um novo capítulo no seu diário.
